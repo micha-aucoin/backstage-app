@@ -1,0 +1,34 @@
+services:
+  backstage-app:
+    image: ghcr.io/micha-aucoin/backstage-app:sha-3358212
+    container_name: backstage-app
+    env_file:
+      - example.env
+    ports:
+      - "7007:7007"
+    networks:
+      - backstage-net
+    depends_on:
+      backstage-pg:
+        condition: service_healthy
+
+  backstage-pg:
+    image: bitnami/postgresql:13
+    container_name: backstage-pg
+    environment:
+      - POSTGRESQL_USERNAME=backstage
+      - POSTGRESQL_PASSWORD=backstagePass123
+      - POSTGRESQL_DATABASE=backstage_db
+    ports:
+      - "5432:5432"
+    networks:
+      - backstage-net
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U backstage -d backstage_db" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  backstage-net:
+    name: backstage-net

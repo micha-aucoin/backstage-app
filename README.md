@@ -8,3 +8,16 @@ To start the app, run:
 yarn install
 yarn dev
 ```
+<br>
+<br>
+
+also, to start app
+```sh
+docker compose up -d
+```
+and to kill app
+```sh
+docker compose down
+```
+
+
