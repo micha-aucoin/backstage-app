@@ -1,0 +1,5 @@
+curl
+build-essential
+bash-completion
+git
+jq
