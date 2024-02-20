@@ -25,6 +25,17 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     apt-get update && \
     apt-get install -y --no-install-recommends libsqlite3-dev
 
+# Install Python and pip
+RUN apt-get update && apt-get install -y python3 python3-pip python3-venv
+
+# Create a virtual environment and activate it
+RUN python3 -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+
+# Now use pip to install packages
+RUN pip install --upgrade pip
+RUN pip install cookiecutter
+
 # From here on we use the least-privileged `node` user to run the backend.
 USER node
 
