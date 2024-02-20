@@ -3,7 +3,7 @@
 
 ### HOST BUILD
 
-The required steps in the host build are to install dependencies with yarn install, generate type definitions using yarn tsc, and build the backend package with yarn build:backend.:
+The required steps in the host build are to install dependencies with `yarn install`, generate type definitions using `yarn tsc`, and build the backend package with `yarn build:backend`:
 
 ```sh
 yarn install --frozen-lockfile
