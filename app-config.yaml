@@ -122,3 +122,25 @@ catalog:
     #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme-corp.yaml
     #   rules:
     #     - allow: [User, Group]
+
+kubernetes:
+  serviceLocatorMethod:
+    type: 'multiTenant'
+  clusterLocatorMethods:
+    - type: 'config'
+      clusters:
+        - url: https://172.29.106.67:6443
+          name: rancher-desktop
+          authProvider: 'serviceAccount'
+          skipTLSVerify: false
+          skipMetricsLookup: true
+          serviceAccountToken: ${K8S_RANCHER_DESKTOP_TOKEN}
+          caData: ${K8S_CONFIG_CA_DATA}
+          customResources:
+           - group: 'tekton.dev'
+             apiVersion: 'v1beta1'
+             plural: 'pipelineruns'
+           - group: 'tekton.dev'
+             apiVersion: 'v1beta1'
+             plural: 'taskruns'
+
