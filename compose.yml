@@ -1,24 +1,24 @@
 services:
-  backstage-app:
-    build:
-      context: .
-      dockerfile: packages/backend/Dockerfile
-    container_name: backstage-app
-    volumes:
-      - ./packages/backend/src:/app/packages/backend/src
-      - ./packages/app/src:/app/packages/app/src
-      - ./app-config.yaml:/app/app-config.yaml
-      - ./packages/backend/package.json:/app/packages/backend/package.json
-      - ./packages/app/package.json:/app/packages/app/package.json
-    env_file:
-      - .env
-    ports:
-      - "7007:7007"
-    networks:
-      - backstage-net
-    depends_on:
-      backstage-pg:
-        condition: service_healthy
+#  backstage-app:
+#    build:
+#      context: .
+#      dockerfile: packages/backend/Dockerfile
+#    container_name: backstage-app
+#    volumes:
+#      - ./packages/backend/src:/app/packages/backend/src
+#      - ./packages/app/src:/app/packages/app/src
+#      - ./app-config.yaml:/app/app-config.yaml
+#      - ./packages/backend/package.json:/app/packages/backend/package.json
+#      - ./packages/app/package.json:/app/packages/app/package.json
+#    env_file:
+#      - .env
+#    ports:
+#      - "7007:7007"
+#    networks:
+#      - backstage-net
+#    depends_on:
+#      backstage-pg:
+#        condition: service_healthy
 
   backstage-pg:
     image: bitnami/postgresql:13
