@@ -19,6 +19,5 @@
     },
     "ghcr.io/devcontainers/features/nix:1": {}
   },
-  "remoteUser": "vscode",
-  #"postCreateCommand": "curl -o /usr/local/bin/kube-ps1.sh https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.sh"
+  "remoteUser": "vscode"
 }
