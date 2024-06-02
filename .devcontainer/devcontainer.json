@@ -1,6 +1,6 @@
 {
   "build": {
-    "dockerfile": "../packages/backend/Dockerfile",
+    "dockerfile": "./Dockerfile",
     "context": "."
   },
   "features": {
@@ -19,5 +19,6 @@
     },
     "ghcr.io/devcontainers/features/nix:1": {}
   },
-  "remoteUser": "vscode"
+  "remoteUser": "vscode",
+  "forwardPorts": [3000, 7007]
 }
