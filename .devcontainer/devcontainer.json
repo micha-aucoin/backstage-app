@@ -1,6 +1,6 @@
 {
   "build": {
-    "dockerfile": "packages/backend/Dockerfile",
+    "dockerfile": "../packages/backend/Dockerfile",
     "context": "."
   },
   "features": {
