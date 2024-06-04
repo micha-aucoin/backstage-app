@@ -30,8 +30,3 @@ bring down
 docker compose down
 ```
 
-### Devcontainer
-```sh
-devpod up https://github.com/micha-aucoin/backstage-app.git
-```
-port forward 7007 from devpod
